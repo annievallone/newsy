@@ -4,7 +4,7 @@ module.exports = function (app) {
     app.get('/', function (req, res) {
         console.log("INSIDE HOME ROUTE")
         db.Article.find({}, function (err, dbArticle) {
-            console.log("inside home route promise---------------", dbArticle)
+            // console.log("inside home route promise---------------", dbArticle)
             res.render('home', { article: dbArticle })
         })
 

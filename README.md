@@ -7,7 +7,8 @@ In this assignment, you'll create a web app that lets users view and leave comme
 ### Before You Begin
 
 1. Create a GitHub repo for this assignment and clone it to your computer. Any name will do -- just make sure it's related to this project in some fashion.
-
+DONE 
+<!-- 
 2. Run `npm init`. When that's finished, install and save these npm packages:
 
 3. express
@@ -20,8 +21,8 @@ In this assignment, you'll create a web app that lets users view and leave comme
 
 7. cheerio
 
-8. request
-
+8. request -->
+<!-- DONE 
 9. **NOTE**: If you want to earn complete credit for your work, you must use all six of these packages in your assignment.
 
 10. In order to deploy your project to Heroku, you must set up an mLab provision. mLab is remote MongoDB database that Heroku supports natively. Follow these steps to get it running:
@@ -44,7 +45,7 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
-```
+``` -->
 
 * This code should connect mongoose to your remote mongolab database if deployed, but otherwise will connect to the local mongoHeadlines database on your computer.
 

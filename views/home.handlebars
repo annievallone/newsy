@@ -1,0 +1,30 @@
+<h1>FOMO!</h1>
+
+<h2>Welcome to FOMO, we get data from multiple websites and display events going on near you </h2>
+
+<h2>Dates</h2>
+<ul>
+    {{#each date}}
+    {{/each}}
+</ul>
+
+<h2>Pick Dates</h2>
+
+<form action="/scrape" method="POST">
+    Pick your dates <br>
+    <select name="month">
+        <option value="january">january</option>
+        <option value="february">february</option>
+    </select>
+    <!--<input type="date" name="date"><br>-->
+    <input type="submit" value="Submit" id="new-date">
+    <!-- <input type="submit" id="search">-->
+</form>
+
+<div class="article">
+    <div class="card">
+        {{#each article}}
+        <div class="card-title">{{this.title}}</div>
+        <div class="card-body">{{this.date}}</div>
+        {{/each}}
+    </div>

@@ -1,6 +1,7 @@
-<h1>FOMO!</h1>
+<h1>Weekend Moves!</h1>
 
-<h2>Welcome to FOMO, we get data from multiple websites and display events going on near you </h2>
+<h2> Welcome to Weekend Moves your one stop shop for finding what is out there to do this weekend next or a month from
+    now! </h2>
 
 <h2>Dates</h2>
 <ul>
@@ -15,16 +16,33 @@
     <select name="month">
         <option value="january">january</option>
         <option value="february">february</option>
+        <option value="february">march</option>
+        <option value="february">april</option>
+        <option value="february">may</option>
+        <option value="february">june</option>
+        <option value="february">july</option>
+        <option value="february">august</option>
+        <option value="february">september</option>
+        <option value="february">october</option>
+        <option value="february">november</option>
+        <option value="february">december</option>
     </select>
-    <!--<input type="date" name="date"><br>-->
+
     <input type="submit" value="Submit" id="new-date">
-    <!-- <input type="submit" id="search">-->
+
 </form>
 
 <div class="article">
-    <div class="card">
-        {{#each article}}
-        <div class="card-title">{{this.title}}</div>
-        <div class="card-body">{{this.date}}</div>
-        {{/each}}
+    {{#each article}}
+    <div class="card border-primary mb-3"></div>
+    <div class="card-title" id={{this.id}}><a href={{this.url}}>{{this.title}}</a>
+        <div class="card-body">{{this.date}}
+            <form>Comments
+                <input type="text" name="comment" {{this.comment}}><input type="submit" id="save" value="save">
+                <input type="submit" id="delete" value="delete">
+            </form>
+            </form>
+        </div>
     </div>
+    {{/each}}
+</div>

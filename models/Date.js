@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 
 var Schema = mongoose.Schema;
 
-var ArticleSchema = new Schema({
+var DateSchema = new Schema({
   title: {
     type: String,
     required: true
@@ -16,6 +16,6 @@ var ArticleSchema = new Schema({
   }
 });
 
-var Article = mongoose.model("Article", ArticleSchema);
+var Date = mongoose.model("Date", DateSchema);
 
-module.exports = Article;
+module.exports = Date;

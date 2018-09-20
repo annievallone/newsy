@@ -8,8 +8,6 @@ module.exports = function (app) {
             res.render('home', { article: dbArticle })
         })
 
-
-
     })
     app.get("/articles", function (req, res) {
         db.Article.find({})

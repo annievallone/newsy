@@ -6,38 +6,54 @@ var db = require("../models");
 module.exports = function (app) {
     app.post("/scrape", function (req, res) {
 
-        console.log("DATE ON BACK END", req.body)
         var month = req.body.month
-        //template literals or template string
+
         var URL = `https://www.events12.com/atlanta/${month}`
-        // console.log(URL)
+
         request(URL, function (err, data, html) {
-            // console.log('DATA-----------------------------------------------:', html)
             var $ = cheerio.load(html);
-            // var results = ;
+            var results = [];
             $("article").each(function (i, element) {
-                var result = [];
                 var title = $(element).find("a").text()
                 var date = $(element).find(".date").text()
-                console.log(date)
                 var url = $(element).find("a").attr("href")
-                console.log(url)
-                result.push({ title: title, date: date, url: url })
-                // console.log(result)
-                db.Article.create(result, function (dbArticle) {
-                    // console.log(dbArticle);
-                })
-                // .catch(function (err) {
-
-                // })
+                results.push({ title: title, url: url, date: date })
             });
-            res.redirect('/')
+            db.Article.insertMany(results, function () {
+                res.redirect('/')
+            })
         });
-
     })
-};
+    // $.post("/article/:id", user, function (result) {
+    //     var id = $(element).find("id").text();
+    //     console.log(result);
 
-/*
-/article/:id
-req.params.id
-*/
+    // });
+    // app.post("/article/:id", function (req, res) {
+    //     console.log(id)
+    //     db.Comment.create(req.body)
+    //         .then(function (dbComment) {
+    //             return db.Article.findOneAndUpdate({ _id: req.params.id }, { $push: { comment: dbComment._id } }, { new: true });
+    //         })
+    //         .then(function (dbArticle) {
+    //             res.send(dbArticle);
+    //         })
+    // });
+    // app.delete("/article/:article_id/comment/:comment_id", function (req, res) {
+    //     db.Comment.findOneAndRemove({ _id: req.params.comment_id }, function (err) {
+    //         if (err) {
+    //             console.log(err);
+    //         } else {
+    //             db.Article.findOneAndUpdate({ _id: req.params.article_id }, { $pull: { comment: req.params.comment_id } })
+    //                 .then(function (err) {
+    //                     if (err) {
+    //                         console.log(err);
+    //                     }
+    //                     res.send("note deleted")
+    //                 })
+    //         }
+    //     })
+    // })
+}
+
+

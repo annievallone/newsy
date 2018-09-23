@@ -8,22 +8,23 @@ $("#save").on("click", function (event) {
     });
 })
 
-$("#save").on("click", function (event) {
-    event.preventDefault();
-    let thisId = $(".card-title").attr("data-id");
+// $("#save").on("click", function (event) {
+//     event.preventDefault();
+//     let thisId = $(".card-title").attr("data-id");
+//     var comment = $(element).find(".comment")
 
-    $.ajax({
-        method: "POST",
-        url: "/article/" + thisId,
-        data: {
-            id: $("#id").val(),
-            comment: $("#commnet").val()
-        }
-    }).then(function (data) {
-        console.log(data);
+//     $.ajax({
+//         method: "POST",
+//         url: "/article/" + thisId,
+//         data: {
+//             id: $("#id").val(),
+//             comment: $("#commnet").val()
+//         }
+//     }).then(function (data) {
+//         console.log(data);
 
-        // $("#title").val("");
-        // $("#body").val("");
-        location.reload();
-    })
-})
+//         // $("#title").val("");
+//         // $("#body").val("");
+//         location.reload();
+//     })
+// })
